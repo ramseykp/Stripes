@@ -1,0 +1,28 @@
+﻿aprx = arcpy.mp.ArcGISProject('current')
+m = aprx.listMaps()[0]
+lyr = m.listLayers('97_pnts')[0]
+lyt = aprx.listLayouts()[0]
+pointNumber = 0
+newHeading = 39.55
+mf = 0
+x = 0.25
+y = 23.75
+frame = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]
+frame.elementPositionX = x
+frame.elementPositionX = y
+frame.elementPositionY = y
+frame.elementPositionX = x
+y = 23.25
+frame.elementPositionY = y
+y = 23.5
+frame.elementPositionY = y
+arcpy.SelectLayerByAttribute_management('97_pnts', 'NEW_SELECTION', 'FID_Grid = {}'.format(str(pointNumber)))
+arcpy.SelectLayerByAttribute_management('97_pnts', 'NEW_SELECTION', 'id = {}'.format(str(pointNumber)))
+elm = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]
+elm.camera.setExtent(elm.getLayerExtent(lyr, True, True))
+elm.camera.heading = 39.55
+elm.camera.scale = 25000
+elm.camera.setExtent(elm.getLayerExtent(lyr, True, True))
+aprx = arcpy.mp.ArcGISProject('current')  m = aprx.listMaps()[0] lyr = m.listLayers("97_pnts")[0] lyt = aprx.listLayouts()[0] pointNumber = 0  #headingChange = 0.0571428571 newHeading = 39.55 mf = 0 x = 0.25 y = 23.5 while mf < 94:     frame = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     frame.elementPositionX = x     frame.elementPositionY = y     y = y - 0.25     arcpy.SelectLayerByAttribute_management('97_pnts', 'NEW_SELECTION', 'id = {}'.format(str(pointNumber)))     elm = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     elm.camera.setExtent(elm.getLayerExtent(lyr, True, True))     elm.camera.heading = 39.55     elm.camera.scale = 25000     pointNumber = pointNumber + 1     mf = mf + 1
+aprx = arcpy.mp.ArcGISProject('current')  m = aprx.listMaps()[0] lyr = m.listLayers("97_pnts")[0] lyt = aprx.listLayouts()[0] pointNumber = 0  #headingChange = 0.0571428571 newHeading = 39.55 mf = 0 x = 0.25 y = 23.5 while mf < 94:     frame = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     frame.elementPositionX = x     frame.elementPositionY = y     y = y - 0.25     arcpy.SelectLayerByAttribute_management('97_pnts', 'NEW_SELECTION', 'id = {}'.format(str(pointNumber)))     elm = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     elm.camera.setExtent(elm.getLayerExtent(lyr, True, True))     elm.camera.heading = 39.55     elm.camera.scale = 25000     pointNumber = pointNumber + 1     mf = mf + 1       print('done')
+aprx = arcpy.mp.ArcGISProject('current')  m = aprx.listMaps()[0] lyr = m.listLayers("97_pnts")[0] lyt = aprx.listLayouts()[0] pointNumber = 0  #headingChange = 0.0571428571 newHeading = 39.55 mf = 0 x = 0.25 y = 23.5 while mf < 94:     frame = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     frame.elementPositionX = x     frame.elementPositionY = y     y = y - 0.25     arcpy.SelectLayerByAttribute_management('97_pnts', 'NEW_SELECTION', 'id = {}'.format(str(pointNumber)))     elm = lyt.listElements('MAPFRAME_ELEMENT', 'Map Frame {}'.format(str(mf)))[0]     elm.camera.setExtent(elm.getLayerExtent(lyr, True, True))     elm.camera.heading = 36.35     elm.camera.scale = 25000     pointNumber = pointNumber + 1     mf = mf + 1       print('done again')
