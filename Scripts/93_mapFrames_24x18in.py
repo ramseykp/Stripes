@@ -24,3 +24,5 @@ while mf < 94:
     elm.camera.scale = 25000
     pointNumber = pointNumber + 1
     mf = mf + 1
+
+print("done")
